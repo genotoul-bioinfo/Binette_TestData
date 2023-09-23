@@ -16,7 +16,7 @@ def main():
 
 
     # Compare columns that require exact matching
-    exact_columns = ["origin", "name", "size", "N50", "contig_count"]
+    exact_columns = ["origin", "size", "N50", "contig_count"]
     exact_match = (df1[exact_columns] == df2[exact_columns]).all(axis=1)
 
     # Compare columns with tolerance
