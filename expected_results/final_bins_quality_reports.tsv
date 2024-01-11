@@ -1,5 +1,5 @@
 bin_id	origin	name	completeness	contamination	score	size	N50	contig_count
-98	union	binA | binT	99.67	0.05	99.42	1043034	333900	3
-9	B	binC	100.0	0.28	98.6	719535	378240	2
-61	diff	bin6 - binC	98.72	0.48	96.32	490885	133360	4
-88	union	binB | bin5	75.71	1.16	69.91	560035	39288	25
+82	union	binA | binT	99.73	0.06	99.61	1043034	333900	3
+9	B	binC	100.0	0.28	99.44	719535	378240	2
+46	diff	bin6 - binC	98.72	0.48	97.76	490885	133360	4
+91	union	bin5 | binB	75.16	1.1	72.96	560035	39288	25
