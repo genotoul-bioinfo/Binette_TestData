@@ -23,18 +23,27 @@ cd Binette_TestData
 
 ```
 
+
 2. **Run Binette**:
 
-   Execute Binette on the test data using the following command:
+Execute Binette on the test data using one of the following commands:
+
+- To test Binette with bin2table inputs using the `--contig2bin_tables` argument:
 
 ```bash
-binette -b binning_results/* --contigs all_contigs.fna --checkm2_db checkm2_tiny_db/checkm2_tiny_db.dmnd  -v -o test_results
-
+binette -b binning_results/*.binning --contigs all_contigs.fna --checkm2_db checkm2_tiny_db/checkm2_tiny_db.dmnd -v -o test_results
 ```
 
-This command should complete in just a few seconds.
+- To test Binette using bin folders inputs, each containing their bins in fasta files, with the `--bin_dirs` argument:
 
-4. **Compare Results**: 
+```bash
+binette --bin_dirs binning_results/A/ binning_results/B/ binning_results/C/ --contigs all_contigs.fna --checkm2_db checkm2_tiny_db/checkm2_tiny_db.dmnd -v -o test_results
+```
+
+
+These commands should complete in just a few seconds.
+
+1. **Compare Results**: 
 
 After running Binette, you can compare the generated `final_bins_quality_reports.tsv` with the expected results. Some variation in the completeness, contamination, and score columns is expected due to Checkm2's slight variability.
 
