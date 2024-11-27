@@ -31,26 +31,32 @@ Execute Binette on the test data using one of the following commands:
 - To test Binette with bin2table inputs using the `--contig2bin_tables` argument:
 
 ```bash
-binette -b binning_results/*.binning --contigs all_contigs.fna --checkm2_db checkm2_tiny_db/checkm2_tiny_db.dmnd -v -o test_results
+binette -b binning_results/*.binning --contigs all_contigs.fna --checkm2_db checkm2_tiny_db/checkm2_tiny_db.dmnd -v -o test_results_bin_tables
 ```
 
 - To test Binette using bin folders inputs, each containing their bins in fasta files, with the `--bin_dirs` argument:
 
 ```bash
-binette --bin_dirs binning_results/A/ binning_results/B/ binning_results/C/ --contigs all_contigs.fna --checkm2_db checkm2_tiny_db/checkm2_tiny_db.dmnd -v -o test_results
+binette --bin_dirs binning_results/A/ binning_results/B/ binning_results/C/ --contigs all_contigs.fna --checkm2_db checkm2_tiny_db/checkm2_tiny_db.dmnd -v -o test_results_bin_dirs
 ```
 
+- To test Binette with precomputed protein sequences as input using the `--proteins` argument:
+
+```bash
+binette -b binning_results/*.binning --contigs all_contigs.fna --checkm2_db checkm2_tiny_db/checkm2_tiny_db.dmnd --proteins proteins.faa -v -o test_results_proteins_arg
+```
 
 These commands should complete in just a few seconds.
 
 1. **Compare Results**: 
 
-After running Binette, you can compare the generated `final_bins_quality_reports.tsv` with the expected results. Some variation in the completeness, contamination, and score columns is expected due to Checkm2's slight variability.
+After running Binette, you can compare the generated `final_bins_quality_reports.tsv` with the expected results. 
+Some variation in the completeness, contamination, and score columns is expected due to Checkm2's slight variability.
 
 You can perform the comparison manually by using the head command:
 
 ```bash
-head  expected_results/final_bins_quality_reports.tsv test_results/final_bins_quality_reports.tsv
+head  expected_results/final_bins_quality_reports.tsv test_results_bin_tables/final_bins_quality_reports.tsv
 
 ```
 
@@ -58,6 +64,6 @@ Alternatively, you can use the provided Python script for automated comparison: 
 
 ```bash
 
-python scripts/compare_results.py expected_results/final_bins_quality_reports.tsv test_results/final_bins_quality_reports.tsv
+python scripts/compare_results.py expected_results/final_bins_quality_reports.tsv test_results_bin_tables/final_bins_quality_reports.tsv
 
 ```
